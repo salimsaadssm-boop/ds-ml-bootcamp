@@ -541,3 +541,20 @@ Fitting a very wiggly curve through every training point, but it performs poorly
 - Use simpler models (Occam’s Razor).
 - Regularization techniques (L1, L2 penalties).
 - Cross-validation to check performance.
+
+---
+
+## ✅ Lesson Summary
+
+- Machine Learning = teaching computers to learn patterns from data.
+- Two main types: **Supervised** (labeled data) & **Unsupervised** (unlabeled data).
+- Workflow: Problem → Data → Preprocessing → Train/Test → Model → Evaluation → Deployment.
+- Key challenge: balance between **underfitting** and **overfitting**.
+
+---
+
+## 🔚 End of Lesson 1
+
+🎉 Congratulations! You’ve completed the **Introduction to Machine Learning** lesson.
+
+---
