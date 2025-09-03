@@ -1,1 +1,20 @@
+# Ignore system/IDE files
+*.DS_Store
+*.vscode/
+*.idea/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Jupyter notebook checkpoints
 .ipynb_checkpoints/
+
+# Ignore compressed/binary files
+*.zip
+*.tar
+*.gz
+*.exe
+*.dll
+*.bin
