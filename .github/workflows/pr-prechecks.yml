@@ -1,13 +1,13 @@
-
 name: PR Pre-Checks
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    branches: [ main, master ]
+    branches: [main, master]
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   validate-submission:
@@ -23,15 +23,31 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-
-      - name: Install Python deps (none required)
-        run: python -V
+          python-version: "3.x"
 
       - name: Run validation
+        id: validate
         env:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          python .github/scripts/validate_submission.py
+          set -e
+          python .github/scripts/validate_submission.py || echo "VALIDATION_FAILED=true" >> $GITHUB_ENV
+
+      - name: Comment on PR if validation failed
+        if: env.VALIDATION_FAILED == 'true'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: submission-check
+          message: |
+            ❌ **Submission invalid**
+
+            Your pull request must include at least ONE of the following file types:
+            - Jupyter Notebook (.ipynb)
+            - Markdown (.md)
+            - CSV Dataset (.csv)
+            - PDF Report (.pdf)
+            - Word Document (.doc, .docx)
+
+            Please fix your submission and push again.
