@@ -14,6 +14,7 @@ ________________________________________
 2. Supervised Learning vs Unsupervised Learning — Comparison and Examples
 Simple comparison (conceptual)
 •	Supervised learning: Models learn from labeled data (input → desired output). Tasks: classification, regression. Example algorithms: logistic regression, decision trees, support vector machines, neural networks. Use case: predicting house prices from features (area, rooms, location) or spam detection. PMCv7labs.com
+
 •	Unsupervised learning: Models learn structure from unlabeled data (only inputs). Tasks: clustering, dimensionality reduction, density estimation, anomaly detection. Example algorithms: k-means, hierarchical clustering, PCA, autoencoders. Use case: customer segmentation from purchasing data. v7labs.com
 Tabular comparison
 Aspect	Supervised Learning	Unsupervised Learning
